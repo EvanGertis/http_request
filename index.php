@@ -8,7 +8,8 @@
 (function(){
     //initialize locals.
     var httpRequest;
-    var content = "test";
+    var obj = {userName: "Evan Gertis"};
+    var content = 'userName=Evan Gertis'
 
     //add event listeners.
     document.getElementById("ajaxButton").addEventListener('click', makeRequest)
@@ -27,6 +28,7 @@
         // set callback handler.
         httpRequest.onreadystatechange = alertContents;
         httpRequest.open('POST', 'server.php');
+        httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         httpRequest.send(content);
     }
     // END makeRequest
